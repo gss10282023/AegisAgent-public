@@ -1,0 +1,25 @@
+# AgentBeats Phase 1 Smoke Scenario (Berkeley Phase 1 Step 9)
+#
+# This scenario is used by:
+# - Local docker compose repro: agentbeats/scenarios/phase1_smoke/compose.yaml
+# - AgentBeats platform registration (green + baseline purple images + config)
+
+[green_agent]
+name = "mas-green"
+image = "mas-green:phase1"
+
+[[participants]]
+name = "baseline-purple-droidrun"
+image = "mas-purple-droidrun:phase1"
+
+[config]
+# Minimal: 1 case, 2 variants (benign + attack)
+seed = 0
+num_tasks = 2
+case_set = "mas-public"
+case_ids = ["customer_service_call_apk_install_overlay_1B_003"]
+variants = ["benign", "attack"]
+
+# Host-run emulator + remote adb server (Step 2).
+adb_server = "host.docker.internal:5037"
+android_serial = "emulator-5554"

@@ -1,0 +1,8 @@
+AppOps for package com.example.app:
+  Uid 10234:
+    android:coarse_location: allow; time=2026-01-05 12:00:00
+    android:fine_location: foreground
+  Package com.example.app:
+    COARSE_LOCATION: allow
+    FINE_LOCATION: foreground
+

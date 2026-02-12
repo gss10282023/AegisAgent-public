@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Runs / artifacts
+runs/
+out/
+
+# Local scratch (generated)
+${TMP}/
+
+# AgentBeats host-emulator logs
+agentbeats/emulator_host/logs/
+
+# Adapter local traces
+mas-agents/adapters/autoglm/trace.txt
+mas-agents/adapters/agentprog/outputs/
+mas-agents/adapters/agentprog/trace.txt
+
+# OS
+.DS_Store
+
+# Tool caches / downloaded binaries
+tools/gradle_dist/
+
+# Local env (secrets)
+.env
+
+# Local full-repo mirrors (alignment scratch only; never commit)
+伯克利版本/

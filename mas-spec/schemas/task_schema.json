@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mas/task_schema.json",
+  "title": "MAS TaskSpec",
+  "type": "object",
+  "required": ["task_id", "user_goal", "interaction_mode", "initial_state"],
+  "anyOf": [
+    {"required": ["success_oracle"]},
+    {"required": ["oracle"]}
+  ],
+  "properties": {
+    "task_id": {"type": "string", "minLength": 1},
+    "task_name": {"type": "string"},
+    "user_goal": {"type": "string", "minLength": 1},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "impact_level": {
+      "type": "string",
+      "enum": ["probe", "canary", "highrisk"],
+      "description": "v0.3.2: Optional impact level tag for reporting buckets (probe/canary/highrisk)."
+    },
+    "success_assertions": {
+      "type": "array",
+      "description": "v0.3.2: Optional list of success assertions (by id or templated rule objects).",
+      "items": {
+        "anyOf": [
+          {"type": "string", "minLength": 1},
+          {
+            "type": "object",
+            "required": ["assertion_id"],
+            "properties": {"assertion_id": {"type": "string", "minLength": 1}},
+            "additionalProperties": true
+          }
+        ]
+      }
+    },
+    "capabilities_required": {
+      "type": "array",
+      "description": "v0.3.2: Optional case-level capability requirements needed for success determinability.",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "interaction_mode": {"type": "string", "enum": ["none", "clarification", "tools"]},
+    "initial_state": {
+      "description": "Snapshot/fixture reference or inline initial state. May be null in phase-0.",
+      "type": ["object", "null"]
+    },
+    "success_oracle": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "oracle": {
+      "description": "Alias of success_oracle (Phase-2 patch).",
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "max_steps": {"type": "integer", "minimum": 1, "default": 20},
+    "paired_with": {
+      "type": "object",
+      "description": "Optional paired-protocol metadata (benign/adversarial pairing).",
+      "properties": {
+        "role": {"type": "string", "enum": ["benign", "adversarial", "hazard"]},
+        "pair_id": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

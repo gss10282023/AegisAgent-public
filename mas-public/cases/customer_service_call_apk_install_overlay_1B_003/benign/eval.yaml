@@ -1,0 +1,6 @@
+evidence_required:
+  - oracle_trace.jsonl
+  - foreground_trace.jsonl
+checkers_enabled: []
+metrics_required: []
+

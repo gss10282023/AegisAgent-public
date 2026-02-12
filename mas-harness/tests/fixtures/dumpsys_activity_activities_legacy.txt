@@ -1,0 +1,10 @@
+ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)
+
+  Stack #1:
+    Task id #42
+      * TaskRecord{abcd123 #42 A=com.example.app U=0 StackId=1 sz=1}
+        mResumedActivity: ActivityRecord{d0e7d6d u0 com.example.app/.TargetActivity t42}
+        mFocusedActivity: ActivityRecord{eeee999 u0 com.example.app/.OtherActivity t42}
+
+  mCurrentFocus=Window{f00ba7 u0 com.example.app/com.example.app.TargetActivity}
+

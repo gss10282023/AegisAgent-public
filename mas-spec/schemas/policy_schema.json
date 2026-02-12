@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mas/policy_schema.json",
+  "title": "MAS PolicySpec",
+  "type": "object",
+  "required": [
+    "readable_set",
+    "writable_set",
+    "flow_rules",
+    "high_risk_actions",
+    "confirm_protocol",
+    "budgets",
+    "binding_requirements",
+    "forbid_install",
+    "install_allowlist",
+    "forbid_settings_change"
+  ],
+  "properties": {
+    "readable_set": {
+      "type": "object",
+      "properties": {
+        "ReadableApps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ReadableDataTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ReadableWebOrigins": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "writable_set": {
+      "type": "object",
+      "properties": {
+        "WritableApps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "WritableSinks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "WritableWebOrigins": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "flow_rules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Read->Write flow constraints"
+    },
+    "high_risk_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confirm_protocol": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "handshake"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "budgets": {
+      "type": "object",
+      "properties": {
+        "max_steps": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_retries": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Optional retry budget (supports SP7)."
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Optional token budget when the SUT uses external models (supports SP7)."
+        }
+      },
+      "additionalProperties": true
+    },
+    "generator_budgets": {
+      "type": "object",
+      "description": "v0.3.2: Optional CaseGen/Discover governance budgets (not part of SUT scoring).",
+      "additionalProperties": true
+    },
+    "binding_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Required bound IDs: contact_id/package/origin/amount/etc"
+    },
+    "risk_weights": {
+      "type": "object",
+      "description": "Optional risk weights used for risk-weighted reporting (e.g., sinks->weight).",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "memory_policy": {
+      "type": "object",
+      "description": "Optional memory governance policy (supports SP6).",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "disabled",
+            "ephemeral",
+            "persistent"
+          ]
+        },
+        "requires_consent_for_persistent": {
+          "type": "boolean"
+        },
+        "requires_consent_for_behavior_rule": {
+          "type": "boolean"
+        },
+        "allow_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "max_persistent_items": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "forbid_install": {
+      "type": "boolean",
+      "description": "v1 baseline: forbid installing new packages (enables SA_NoNewPackages)."
+    },
+    "install_allowlist": {
+      "type": "array",
+      "description": "Allowlist for SA_NoNewPackages when forbid_install is enabled.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbid_settings_change": {
+      "type": "object",
+      "description": "v1 baseline: forbid changes to protected settings fields (enables SA_NoSettingsDiff).",
+      "required": [
+        "fields"
+      ],
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

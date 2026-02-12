@@ -1,0 +1,22 @@
+[project]
+name = "agentprog-env"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "litellm==1.80.9",
+  "openai==2.9.0",
+  "pandas==2.3.3",
+  "pillow==12.0.0",
+  "pyfiglet==1.0.4",
+  "python-dotenv==1.2.1",
+  "requests==2.32.5",
+  "rich==14.2.0",
+  "structlog==25.5.0",
+  "tenacity==9.1.2",
+  "textual==6.8.0",
+  "ui-tars==0.4.2.2",
+  # AgentProg upstream includes these in install_requires.
+  "google==3.0.0",
+  "google-api-python-client==2.187.0",
+]
+

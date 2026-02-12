@@ -1,0 +1,399 @@
+- agent_id: agi-0
+  agent_name: AGI-0
+  open_status: closed
+  leaderboard_rank: 1
+  leaderboard_link: https://www.theagi.company/blog/android-world
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: askui-androidvisionagent
+  agent_name: askui AndroidVisionAgent
+  open_status: open
+  leaderboard_rank: 2
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: droidrun
+  agent_name: DroidRun
+  open_status: open
+  leaderboard_rank: 3
+  leaderboard_link: null
+  availability: runnable
+  tier: core
+  env_profile: android_world_compat
+  execution_mode_supported: [agent_driven]
+  action_trace_level: L1
+  obs_modalities_required: [screenshot, ui_elements]
+  adapter: mas-agents/adapters/droidrun/adapter.py
+  notes: DroidRun (agent-driven); consumes DroidRun trajectories (screenshots + a11y tree) and maps macro.json to L1 agent_events_v1 for MAS device_input_trace.jsonl.
+- agent_id: minitap-mobile-use
+  agent_name: mobile-use
+  open_status: open
+  leaderboard_rank: 3
+  leaderboard_link: null
+  availability: runnable
+  tier: core
+  env_profile: android_world_compat
+  execution_mode_supported: [agent_driven]
+  action_trace_level: L1
+  obs_modalities_required: [screenshot, ui_elements]
+  adapter: mas-agents/adapters/minitap-mobile-use/adapter.py
+  notes: Minitap Mobile-Use (agent-driven); exports L1 agent_events and writes MAS evidence bundle (screenshots + ui_dump). Minitap trace artifacts are stored under the episode evidence dir.
+- agent_id: agent-visco
+  agent_name: Agent-Visco
+  open_status: closed
+  leaderboard_rank: 5
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: surfer-2
+  agent_name: Surfer 2
+  open_status: closed
+  leaderboard_rank: 6
+  leaderboard_link: https://github.com/hcompai/
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: gbox-ai
+  agent_name: gbox.ai
+  open_status: open
+  leaderboard_rank: 7
+  leaderboard_link: https://github.com/babelcloud/android_world_benchmark/blob/main/GBOX/report.md
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: autoglm-mobile
+  agent_name: AutoGLM-Mobile
+  open_status: open
+  leaderboard_rank: 8
+  leaderboard_link: null
+  availability: runnable
+  tier: core
+  env_profile: android_world_compat
+  execution_mode_supported: [agent_driven]
+  action_trace_level: L1
+  obs_modalities_required: [screenshot, ui_elements]
+  adapter: mas-agents/adapters/autoglm-mobile/adapter.py
+  notes: Open-AutoGLM (AutoGLM-Mobile) adapter; Open-AutoGLM executes actions via ADB; MAS captures evidence (screenshots + ui_dump) and exports L1 agent_events_v1 for device_input_trace.jsonl.
+- agent_id: lx-guiagent
+  agent_name: LX-GUIAgent
+  open_status: closed
+  leaderboard_rank: 9
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: agentprog
+  agent_name: AgentProg
+  open_status: open
+  leaderboard_rank: 10
+  leaderboard_link: 'https://arxiv.org/pdf/2512.10371; Code: http'
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: finalrun
+  agent_name: Finalrun
+  open_status: closed
+  leaderboard_rank: 11
+  leaderboard_link: https://github.com/final-run/finalrun-android-world-benchmark
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: k-agent
+  agent_name: K²-Agent
+  open_status: closed
+  leaderboard_rank: 11
+  leaderboard_link: https://github.com/k2-agent/k2-agent
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: mobileuse-v2
+  agent_name: MobileUse-v2
+  open_status: open
+  leaderboard_rank: 13
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: mobile-agent-v3
+  agent_name: Mobile-Agent-v3
+  open_status: closed
+  leaderboard_rank: 14
+  leaderboard_link: https://github.com/X-PLUG/MobileAgent/tree/main
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: gemini-2-5-computer-use
+  agent_name: Gemini 2.5 Computer Use
+  open_status: closed
+  leaderboard_rank: 15
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: jt-guiagent-v2
+  agent_name: JT-GUIAgent-V2
+  open_status: closed
+  leaderboard_rank: 16
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: gui-owl-7b
+  agent_name: GUI-Owl-7B
+  open_status: closed
+  leaderboard_rank: 17
+  leaderboard_link: https://github.com/X-PLUG/MobileAgent/tree/main
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: ui-venus
+  agent_name: UI-Venus
+  open_status: open
+  leaderboard_rank: 18
+  leaderboard_link: https://huggingface.co/inclu
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: mobileuse
+  agent_name: MobileUse
+  open_status: open
+  leaderboard_rank: 19
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: seed1-5-vl
+  agent_name: Seed1.5-VL
+  open_status: open
+  leaderboard_rank: 20
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: jt-guiagent-v1
+  agent_name: JT-GUIAgent-V1
+  open_status: closed
+  leaderboard_rank: 21
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: v-droid-paper
+  agent_name: V-Droid Paper
+  open_status: open
+  leaderboard_rank: 22
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: agent-s2
+  agent_name: Agent S2
+  open_status: open
+  leaderboard_rank: 23
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: ui-venus__24
+  agent_name: UI-Venus
+  open_status: open
+  leaderboard_rank: 24
+  leaderboard_link: https://huggingface.co/inclu
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: gui-explorer
+  agent_name: GUI-Explorer
+  open_status: open
+  leaderboard_rank: 25
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: androidgen
+  agent_name: AndroidGen
+  open_status: open
+  leaderboard_rank: 26
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: ui-tars
+  agent_name: UI-TARS
+  open_status: open
+  leaderboard_rank: 27
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: ui-tars-7b
+  agent_name: UI-TARS 7B
+  open_status: open
+  leaderboard_link: null
+  availability: runnable
+  tier: core
+  env_profile: mas_core
+  execution_mode_supported: [planner_only]
+  action_trace_level: L0
+  obs_modalities_required: [screenshot]
+  adapter: mas-agents/adapters/ui-tars-7b/adapter.py
+  notes: UI-TARS 1.5 7B (screenshot-driven planner); uses MAS AndroidEnvAdapter/Executor for L0 evidence.
+- agent_id: aria-ui
+  agent_name: Aria-UI
+  open_status: open
+  leaderboard_rank: 28
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: scaletrack
+  agent_name: ScaleTrack
+  open_status: closed
+  leaderboard_rank: 29
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: uground
+  agent_name: UGround
+  open_status: open
+  leaderboard_rank: 29
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: mirage-1
+  agent_name: Mirage-1
+  open_status: open
+  leaderboard_rank: 31
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: ponder-press
+  agent_name: Ponder & Press
+  open_status: closed
+  leaderboard_rank: 32
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: androidworld
+  agent_name: AndroidWorld
+  open_status: open
+  leaderboard_rank: 33
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: ecoagent
+  agent_name: EcoAgent
+  open_status: closed
+  leaderboard_rank: 34
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: gui-critic-r1
+  agent_name: GUI-Critic-R1
+  open_status: open
+  leaderboard_rank: 34
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: infiguiagent
+  agent_name: InfiGUIAgent
+  open_status: open
+  leaderboard_rank: 36
+  leaderboard_link: null
+  availability: unavailable
+  tier: extended
+  env_profile: android_world_compat
+  unavailable_reason: not_integrated (no MAS adapter/ingest yet)
+- agent_id: toy_agent
+  agent_name: Toy Agent (Local)
+  open_status: unknown
+  availability: runnable
+  tier: core
+  env_profile: android_world_compat
+  execution_mode_supported: [planner_only]
+  action_trace_level: L0
+  obs_modalities_required: [screenshot, ui_elements]
+  adapter: mas-agents/adapters/toy_agent/adapter.py
+  notes: local wiring test entry (not from leaderboard snapshot)
+- agent_id: a2a_remote
+  agent_name: A2A Remote (External Purple)
+  open_status: unknown
+  availability: runnable
+  tier: extended
+  env_profile: android_world_compat
+  execution_mode_supported: [planner_only]
+  obs_modalities_required: [screenshot, ui_elements]
+  adapter: mas-agents/adapters/a2a_remote/adapter.py
+  notes: Delegate task execution to an external A2A purple agent (Step 4).
+- agent_id: toy_agent_driven_l1
+  agent_name: Toy Agent (Driven L1, Local)
+  open_status: unknown
+  availability: runnable
+  tier: core
+  env_profile: android_world_compat
+  execution_mode_supported: [agent_driven]
+  action_trace_level: L1
+  obs_modalities_required: [screenshot, ui_elements]
+  adapter: mas-agents/adapters/toy_agent_driven_l1/adapter.py
+  notes: local wiring test entry for Phase3 L1 mapping (not from leaderboard snapshot)
+- agent_id: toy_agent_driven_l2
+  agent_name: Toy Agent (Driven L2, Local)
+  open_status: unknown
+  availability: runnable
+  tier: core
+  env_profile: android_world_compat
+  execution_mode_supported: [agent_driven]
+  action_trace_level: L2
+  obs_modalities_required: [screenshot, ui_elements]
+  adapter: mas-agents/adapters/toy_agent_driven_l2/adapter.py
+  notes: local wiring test entry for Phase3 L2 comm_proxy (not from leaderboard snapshot)
+- agent_id: some_audit_only_agent
+  agent_name: Sample Audit-Only Agent
+  open_status: unknown
+  availability: audit_only
+  tier: extended
+  env_profile: android_world_compat
+  trajectory_format: androidworld_jsonl
+  notes: local ingestion test entry (not from leaderboard snapshot)

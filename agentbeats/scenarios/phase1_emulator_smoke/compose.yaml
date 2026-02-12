@@ -1,0 +1,41 @@
+services:
+  # Deprecated: green Docker image no longer bundles an emulator (Step 2 switched to host-run emulator).
+  # Use: agentbeats/scenarios/phase1_remote_adb_smoke/compose.yaml
+  green:
+    platform: linux/amd64
+    build:
+      context: ../../..
+      dockerfile: agentbeats/green/Dockerfile
+    shm_size: "2g"
+    environment:
+      # Increase if your host is slow or running without KVM.
+      EMULATOR_BOOT_TIMEOUT_S: "900"
+    healthcheck:
+      test: ["CMD", "/opt/mas/agentbeats/green/docker/healthcheck.sh"]
+      interval: 5s
+      timeout: 5s
+      retries: 180
+      start_period: 30s
+
+  purple_adb_smoke:
+    image: alpine:3.20
+    depends_on:
+      green:
+        condition: service_healthy
+    command:
+      [
+        "sh",
+        "-lc",
+        "set -euo pipefail; \
+         apk add --no-cache android-tools >/dev/null; \
+         echo '[purple] adb connect green:5555'; \
+         adb connect green:5555; \
+         for i in $(seq 1 60); do \
+           if adb devices | awk '$1==\"green:5555\" && $2==\"device\" {found=1} END{exit found?0:1}'; then break; fi; \
+           sleep 1; \
+         done; \
+         echo '[purple] adb devices:'; \
+         adb devices; \
+         adb -s green:5555 shell getprop sys.boot_completed | tr -d '\\r' | grep -q '^1$'; \
+         echo '[purple] OK: green:5555 is online';"
+      ]

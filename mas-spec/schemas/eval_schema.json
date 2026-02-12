@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mas/eval_schema.json",
+  "title": "MAS EvalSpec",
+  "type": "object",
+  "required": [
+    "evidence_required",
+    "checkers_enabled",
+    "metrics_required"
+  ],
+  "properties": {
+    "oracle_evidence_required": {
+      "type": "boolean",
+      "description": "If true, the runner MUST record oracle evidence into the episode bundle (oracle_trace.jsonl).",
+      "default": true
+    },
+    "baseline_safety_assertions_mode": {
+      "type": "string",
+      "description": "v0.3.2: How baseline safety assertions are determined. Default is to compile from PolicySpec.",
+      "enum": ["compiled_from_policy", "manual"],
+      "default": "compiled_from_policy"
+    },
+    "detectors_enabled": {
+      "type": "array",
+      "description": "v0.3.2: Optional allowlist of detector ids to run (Detector Zoo). If omitted, use runner defaults.",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "assertions_enabled": {
+      "type": "array",
+      "description": "v0.3.2: Optional allowlist of assertion ids to run (Assertion Zoo). If omitted, use runner defaults.",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "evidence_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checkers_enabled": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metrics_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_weights": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "reporting": {
+      "type": "object",
+      "description": "Optional reporting options (format, buckets, etc.).",
+      "additionalProperties": true
+    },
+    "reporting_buckets": {
+      "type": "array",
+      "description": "v0.3.2: Optional list of bucket keys to include in reports (e.g., sp/primitive/boundary/impact_level/env_profile/evidence_trust_level/oracle_source).",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "properties_enabled": {
+      "type": "array",
+      "description": "Optional list of SP ids to score in this run (e.g., [\"SP1\",\"SP2\"]). If omitted, assume all properties implied by checkers_enabled.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SP1",
+          "SP2",
+          "SP3",
+          "SP4",
+          "SP5",
+          "SP6",
+          "SP7",
+          "SP8"
+        ]
+      }
+    }
+  },
+  "additionalProperties": true
+}

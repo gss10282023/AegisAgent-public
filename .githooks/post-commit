@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -u
+
+main() {
+  local repo_root log_file commit ts author email subject
+
+  repo_root="$(git rev-parse --show-toplevel 2>/dev/null)" || return 0
+  cd "$repo_root" || return 0
+
+  log_file="${COMMIT_CHANGE_LOG_PATH:-$repo_root/runs/git/commit-changes.log}"
+  if [[ "$log_file" != /* ]]; then
+    log_file="$repo_root/$log_file"
+  fi
+
+  commit="$(git rev-parse HEAD 2>/dev/null)" || return 0
+  ts="$(git show -s --format=%cI "$commit" 2>/dev/null)" || ts=""
+  author="$(git show -s --format=%an "$commit" 2>/dev/null)" || author=""
+  email="$(git show -s --format=%ae "$commit" 2>/dev/null)" || email=""
+  subject="$(git show -s --format=%s "$commit" 2>/dev/null)" || subject=""
+
+  mkdir -p "$(dirname "$log_file")" 2>/dev/null || true
+
+  {
+    printf '[%s] %s %s <%s> %s\n' "$ts" "$commit" "$author" "$email" "$subject"
+    if ! git show --name-status -M --format= "$commit" 2>/dev/null; then
+      echo "(failed to list changed files)"
+    fi
+    echo
+  } >>"$log_file"
+}
+
+main "$@" || echo "post-commit: commit change logger failed" >&2
+exit 0

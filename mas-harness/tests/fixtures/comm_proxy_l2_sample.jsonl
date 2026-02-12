@@ -1,0 +1,6 @@
+{"timestamp_ms":1730000000000,"direction":"REQUEST","endpoint":"/act","payload":{"type":"tap","x":120,"y":340,"coord_space":"physical_px"}}
+{"timestamp_ms":1730000000005,"direction":"response","endpoint":"/act","status":200,"payload":{"ok":true,"action_id":"a1"}}
+{"timestamp_ms":1730000000100,"direction":"message","endpoint":"ws.action_stream","payload_digest":"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+{"timestamp_ms":1730000000200,"direction":"request","endpoint":"/health","payload":{}}
+{"timestamp_ms":1730000000201,"direction":"response","endpoint":"/health","status":"200","payload":{"status":"ok"}}
+

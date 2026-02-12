@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MAS Device Input Trace Event",
+  "type": "object",
+  "required": [
+    "step_idx",
+    "source_level",
+    "event_type",
+    "payload",
+    "timestamp_ms",
+    "mapping_warnings"
+  ],
+  "properties": {
+    "step_idx": { "type": "integer" },
+    "ref_step_idx": { "type": ["integer", "null"] },
+    "source_level": { "type": "string", "enum": ["L0", "L1", "L2"] },
+    "event_type": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+    "payload": { "type": "object" },
+    "timestamp_ms": { "type": "integer" },
+    "mapping_warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "source_level": { "const": "L0" } } },
+      "then": {
+        "required": ["ref_step_idx"],
+        "properties": { "ref_step_idx": { "type": "integer" } }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

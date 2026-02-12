@@ -1,0 +1,14 @@
+MEDIA SESSION SERVICE (dumpsys media_session)
+
+Sessions Stack - have 2 sessions:
+  Session #0:
+    ownerPackageName=com.example.music
+    tag=ExampleSession
+    PlaybackState {state=3, position=0, buffered position=0, speed=1.0, updated=123456, actions=0x0}
+    Metadata {android.media.metadata.TITLE=Example Song MEDIA_TOKEN_123, android.media.metadata.ARTIST=Example Artist, android.media.metadata.ALBUM=Example Album}
+    SessionToken{pkg=com.example.music type=SESSION service=com.example.music/.ExampleService}
+
+  Session #1:
+    ownerPackageName=com.other.app
+    PlaybackState {state=2, position=0, buffered position=0, speed=0.0, updated=123450, actions=0x0}
+    Metadata {android.media.metadata.TITLE=Other Song}

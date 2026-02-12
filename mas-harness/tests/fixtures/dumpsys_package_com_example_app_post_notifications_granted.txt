@@ -1,0 +1,9 @@
+Packages:
+  Package [com.example.app] (7f32d8a):
+    userId=10234
+    requested permissions:
+      android.permission.POST_NOTIFICATIONS
+    User 0: ceDataInode=123
+      runtime permissions:
+        android.permission.POST_NOTIFICATIONS: granted=true, flags=[ USER_SET ]
+

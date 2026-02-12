@@ -1,0 +1,2 @@
+BluetoothManagerService (dumpsys bluetooth_manager)
+  enabled: false

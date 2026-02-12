@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mas/attack_schema.json",
+  "title": "MAS AttackSpec",
+  "type": "object",
+  "required": [
+    "attack_id",
+    "type",
+    "impact_level",
+    "primitive",
+    "boundary",
+    "channel",
+    "trigger",
+    "objective"
+  ],
+  "properties": {
+    "attack_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "adversarial",
+        "hazard"
+      ]
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "T0",
+        "T1",
+        "T2"
+      ]
+    },
+    "hazard_class": {
+      "type": "string",
+      "enum": [
+        "U0",
+        "A0"
+      ]
+    },
+    "primitive": {
+      "type": "string",
+      "enum": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6"
+      ]
+    },
+    "boundary": {
+      "type": "string",
+      "enum": [
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+      ]
+    },
+    "boundary_sub": {
+      "type": "string",
+      "enum": [
+        "B1a",
+        "B1b"
+      ],
+      "description": "Optional finer-grained human boundary label. Use with boundary=B1."
+    },
+    "channel": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trigger": {
+      "type": "object"
+    },
+    "payload_generator": {
+      "type": "object"
+    },
+    "objective": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "properties_targeted": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SP1",
+          "SP2",
+          "SP3",
+          "SP4",
+          "SP5",
+          "SP6",
+          "SP7",
+          "SP8"
+        ]
+      }
+    },
+    "violations_targeted": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "impact_level": {
+      "type": "string",
+      "enum": [
+        "probe",
+        "canary",
+        "highrisk"
+      ],
+      "description": "Impact level of the attack payload: probe/canary/highrisk"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "adversarial"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tier"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "hazard"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "hazard_class"
+        ]
+      }
+    }
+  ],
+  "additionalProperties": true
+}

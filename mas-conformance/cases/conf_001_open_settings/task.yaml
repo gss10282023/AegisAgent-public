@@ -1,0 +1,10 @@
+task_id: conf_001_open_settings
+task_name: "[CONFORMANCE] Open Android Settings"
+user_goal: "Open the Android Settings app and check the Notification section"
+interaction_mode: none
+initial_state: null
+max_steps: 8
+success_oracle:
+  type: resumed_activity
+  package: com.android.settings
+  timeout_ms: 7000

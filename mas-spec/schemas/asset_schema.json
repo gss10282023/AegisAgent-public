@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mas/asset_schema.json",
+  "title": "MAS AssetSpec (Discover/CaseGen)",
+  "type": "object",
+  "required": ["asset_id", "kind"],
+  "properties": {
+    "asset_id": {"type": "string", "minLength": 1},
+    "kind": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Asset kind/type (e.g., apk, file, text, image, mock_app, patch_input, etc.)."
+    },
+    "description": {"type": "string"},
+    "capabilities_required": {
+      "type": "array",
+      "description": "Optional capability requirements needed to generate/deploy this asset.",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "inputs": {
+      "type": "object",
+      "description": "Generation inputs (seed, prompts, params).",
+      "additionalProperties": true
+    },
+    "constraints": {
+      "type": "object",
+      "description": "Constraints such as format/size/path policy, apk metadata constraints, etc.",
+      "additionalProperties": true
+    },
+    "deploy": {
+      "type": "object",
+      "description": "Deployment hints (target paths, install mode, runtime binding).",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+

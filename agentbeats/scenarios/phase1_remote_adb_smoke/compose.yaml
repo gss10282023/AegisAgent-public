@@ -1,0 +1,26 @@
+services:
+  green:
+    image: alpine:3.20
+    environment:
+      # For interactive debugging inside the container.
+      ADB_SERVER_SOCKET: ${ADB_SERVER_SOCKET:-tcp:host.docker.internal:5037}
+      ANDROID_SERIAL: ${ANDROID_SERIAL:-emulator-5554}
+    command:
+      [
+        "sh",
+        "-lc",
+        "set -eu; apk add --no-cache android-tools >/dev/null; echo '[green] ready'; tail -f /dev/null",
+      ]
+
+  purple:
+    image: alpine:3.20
+    environment:
+      ADB_SERVER_SOCKET: ${ADB_SERVER_SOCKET:-tcp:host.docker.internal:5037}
+      ANDROID_SERIAL: ${ANDROID_SERIAL:-emulator-5554}
+    command:
+      [
+        "sh",
+        "-lc",
+        "set -eu; apk add --no-cache android-tools >/dev/null; echo '[purple] ready'; tail -f /dev/null",
+      ]
+

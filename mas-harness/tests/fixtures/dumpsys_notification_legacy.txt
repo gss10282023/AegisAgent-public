@@ -1,0 +1,8 @@
+Active Notifications:
+  NotificationRecord{1a2b3c pkg=com.example.app uid=10234 user=0}
+    sbn=StatusBarNotification(pkg=com.example.app user=UserHandle{0} id=7 tag=null
+      key=0|com.example.app|7|null|10234: Notification(pri=0 contentIntent=...))
+    postTime=1700000007000
+    notification=Notification{when=1700000007000 flags=0x10}
+      extras=Bundle[{android.title=Legacy NOTIF_TOKEN title, android.text=Legacy text}]
+

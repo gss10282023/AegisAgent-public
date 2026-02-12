@@ -1,0 +1,7 @@
+ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)
+
+  Display #0 (activities from top to bottom):
+    RootTask{1234}
+      topResumedActivity=ActivityRecord{aa11bb u0 com.example.app/.TargetActivity t42}
+      ResumedActivity: ActivityRecord{aa11bb u0 com.example.app/.TargetActivity t42}
+

@@ -1,0 +1,16 @@
+Packages:
+  Package [com.example.app] (7f32d8a):
+    userId=10234
+    requested permissions:
+      android.permission.CAMERA
+      android.permission.ACCESS_FINE_LOCATION
+      android.permission.INTERNET
+    install permissions:
+      android.permission.CAMERA: granted=true
+      android.permission.ACCESS_FINE_LOCATION: granted=false
+      android.permission.INTERNET: granted=true
+    User 0: ceDataInode=123
+      runtime permissions:
+        android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SET ]
+        android.permission.CAMERA: granted=true, flags=[ USER_SET ]
+

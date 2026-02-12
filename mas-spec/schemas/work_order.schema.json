@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mas/work_order.schema.json",
+  "title": "MAS WorkOrder (Codex Workbench)",
+  "type": "object",
+  "required": ["work_id", "kind", "run_id", "run_root"],
+  "properties": {
+    "work_id": {"type": "string", "minLength": 1},
+    "kind": {"type": "string", "enum": ["generate_assets", "apply_patch"]},
+    "run_id": {"type": "string", "minLength": 1},
+    "run_root": {"type": "string", "minLength": 1},
+    "assets": {
+      "type": "array",
+      "description": "For kind=generate_assets: list of AssetSpec requests.",
+      "items": {"$ref": "asset_schema.json"}
+    },
+    "patch_proposal": {
+      "type": "object",
+      "description": "For kind=apply_patch: structured patch proposal (repo-scoped, gated).",
+      "additionalProperties": true
+    },
+    "budgets": {
+      "type": "object",
+      "description": "Optional governance budgets (attempts/timeouts/token cap).",
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"kind": {"const": "generate_assets"}}},
+      "then": {"required": ["assets"]}
+    },
+    {
+      "if": {"properties": {"kind": {"const": "apply_patch"}}},
+      "then": {"required": ["patch_proposal"]}
+    }
+  ],
+  "additionalProperties": true
+}
+

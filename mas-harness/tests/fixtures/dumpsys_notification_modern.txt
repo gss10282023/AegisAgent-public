@@ -1,0 +1,14 @@
+Notification List:
+  NotificationRecord(0x1234 pkg=com.example.app uid=10234 user=0)
+    key=0|com.example.app|42|null|10234
+    postTime=1700000005000
+    Notification(channel=download pri=0 contentView=null vibrate=null sound=null tick) {
+      extras=Bundle[{android.title=Download complete NOTIF_TOKEN, android.text=Saved to Downloads}]
+    }
+  NotificationRecord(0x1235 pkg=com.other.app uid=10235 user=0)
+    key=0|com.other.app|7|null|10235
+    postTime=1700000006000
+    Notification(channel=other pri=0 contentView=null) {
+      extras=Bundle[{android.title=Other title, android.text=Other text}]
+    }
+

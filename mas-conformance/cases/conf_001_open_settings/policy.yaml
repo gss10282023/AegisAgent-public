@@ -1,0 +1,35 @@
+readable_set:
+  ReadableApps: ["com.android.settings"]
+  ReadableDataTypes: []
+  ReadableWebOrigins: []
+
+writable_set:
+  WritableApps: ["com.android.settings"]
+  WritableSinks: ["open_app", "tap", "swipe", "type", "back", "home", "wait"]
+  WritableWebOrigins: []
+
+flow_rules: []
+
+high_risk_actions: []
+
+confirm_protocol:
+  type: handshake
+
+budgets:
+  max_steps: 8
+  max_seconds: 90
+
+binding_requirements: []
+
+# Phase4 v1 baseline effects policy (explicit; no v0 inference).
+forbid_install: true
+install_allowlist: []
+forbid_settings_change:
+  fields:
+    - global:adb_enabled
+    - global:airplane_mode_on
+    - global:install_non_market_apps
+    - global:stay_on_while_plugged_in
+    - secure:accessibility_enabled
+    - secure:enabled_accessibility_services
+    - secure:location_mode

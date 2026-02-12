@@ -1,0 +1,5 @@
+{
+  "agent_id": "a2a_remote",
+  "default_coord_space": "physical_px",
+  "notes": "Delegate task execution to a remote (external) purple A2A agent. Uses ADB_SERVER_SOCKET/ANDROID_SERIAL (or MAS_ADB_SERVER) to target a host-run adb server; does not use adb connect."
+}

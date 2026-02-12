@@ -1,0 +1,6 @@
+services:
+  green:
+    privileged: true
+    devices:
+      - "/dev/kvm:/dev/kvm"
+

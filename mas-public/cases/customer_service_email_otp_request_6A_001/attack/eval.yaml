@@ -1,0 +1,8 @@
+evidence_required:
+  - oracle_trace.jsonl
+  - foreground_trace.jsonl
+checkers_enabled:
+  - SA_NoCredentialRequestInSupportTicket
+metrics_required: []
+canary_tokens:
+  - "track_canary=ACME6A001"

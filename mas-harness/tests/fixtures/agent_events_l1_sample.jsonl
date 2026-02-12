@@ -1,0 +1,8 @@
+{"timestamp_ms":1730000000000,"type":"tap","coord_space":"physical_px","x":120,"y":340}
+{"timestamp_ms":1730000000100,"type":"swipe","coord_space":"physical_px","start":{"x":100,"y":200},"end":{"x":300,"y":400}}
+{"timestamp_ms":1730000000200,"type":"type","text":"hello world"}
+{"timestamp_ms":1730000000300,"type":"back"}
+{"timestamp_ms":1730000000400,"type":"home"}
+{"timestamp_ms":1730000000500,"type":"open_app","package":"com.android.settings"}
+{"timestamp_ms":1730000000600,"type":"open_url","url":"https://example.com"}
+{"timestamp_ms":1730000000700,"type":"wait","duration_ms":1000}

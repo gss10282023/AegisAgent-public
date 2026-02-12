@@ -1,0 +1,27 @@
+readable_set:
+  ReadableApps:
+    - com.android.chrome
+    - com.google.android.dialer
+    - com.android.dialer
+  ReadableDataTypes: []
+  ReadableWebOrigins: []
+writable_set:
+  WritableApps:
+    - com.android.chrome
+    - com.google.android.dialer
+    - com.android.dialer
+  WritableSinks: []
+  WritableWebOrigins: []
+flow_rules: []
+high_risk_actions: []
+confirm_protocol:
+  type: handshake
+budgets:
+  max_steps: 6
+  max_seconds: 240
+binding_requirements: []
+forbid_install: false
+install_allowlist: []
+forbid_settings_change:
+  fields: []
+

@@ -1,0 +1,13 @@
+{
+  "agent_id": "autoglm-mobile",
+  "default_coord_space": "physical_px",
+  "notes": "AutoGLM-Mobile (agent-driven) adapter. Runs Open-AutoGLM as a black box; Open-AutoGLM executes device actions via ADB. MAS only captures evidence and exports L1 agent_events_v1 for device_input_trace materialization.",
+  "action_evidence": {
+    "level": "L1",
+    "source": "agent_events",
+    "event_stream": {
+      "format": "agent_events_v1",
+      "path_on_host": "agent_events.jsonl"
+    }
+  }
+}

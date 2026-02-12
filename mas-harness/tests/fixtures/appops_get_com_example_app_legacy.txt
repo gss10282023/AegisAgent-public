@@ -1,0 +1,8 @@
+AppOps for package com.example.app:
+  Uid mode:
+    COARSE_LOCATION: ignore; time=+1m2s
+    RUN_IN_BACKGROUND: allow
+  Package mode:
+    COARSE_LOCATION: ignore
+    RUN_IN_BACKGROUND: allow
+

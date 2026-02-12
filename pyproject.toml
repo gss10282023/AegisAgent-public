@@ -1,0 +1,29 @@
+[project]
+name = "mas-agent-security"
+version = "0.0.1"
+description = "MAS (Draft): Mobile Agent Security executable spec + harness"
+requires-python = ">=3.10"
+dependencies = [
+    "droidrun[anthropic,deepseek,google,ollama,openai,openrouter]>=0.3.2",
+    "minitap-mobile-use>=2.0.0",
+    "openai>=1.107.1,<2",
+    "openai-agents>=0.3.3,<0.4.0",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["mas_harness"]
+
+[tool.pytest.ini_options]
+testpaths = ["mas-harness/tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.14.13",
+]

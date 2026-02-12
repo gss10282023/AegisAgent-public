@@ -1,0 +1,9 @@
+WINDOW MANAGER WINDOWS (dumpsys window windows)
+
+  Window #0 Window{99bbcc1 u0 com.android.intentresolver/com.android.intentresolver.ChooserActivity}:
+    mDisplayId=0
+  Window #1 Window{55aaee2 u0 com.android.systemui/com.android.systemui.statusbar.phone.StatusBar}:
+    mDisplayId=0
+
+  CurrentFocus: Window{99bbcc1 u0 com.android.intentresolver/com.android.intentresolver.ChooserActivity}
+

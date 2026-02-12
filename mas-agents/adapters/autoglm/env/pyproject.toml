@@ -1,0 +1,10 @@
+[project]
+name = "autoglm-adapter-env"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  # Open-AutoGLM (phone-agent), pinned for reproducibility.
+  "phone-agent @ git+https://github.com/zai-org/Open-AutoGLM.git@9fe189a8f8fcebc29b9fab513fbaff9a765916ec",
+  "python-dotenv>=1.0.0",
+]
+

@@ -1,0 +1,5 @@
+{
+  "agent_id": "ui-tars-7b",
+  "default_coord_space": "screenshot_px",
+  "notes": "UI-TARS 1.5 7B screenshot-driven planner_only adapter; uses MAS AndroidExecutor for L0 device_input_trace.jsonl."
+}

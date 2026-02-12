@@ -1,0 +1,74 @@
+// OpenRouter version of the recommended LLM config.
+// (Based on the "recommended" profile from llm-config.defaults.jsonc.)
+{
+  "planner": {
+    "provider": "openrouter",
+    "model": "meta-llama/llama-4-scout",
+    "fallback": {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-4-maverick"
+    }
+  },
+  "orchestrator": {
+    "provider": "openrouter",
+    "model": "openai/gpt-oss-120b",
+    "fallback": {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-4-maverick"
+    }
+  },
+  "cortex": {
+    "provider": "openrouter",
+    "model": "google/gemini-3-pro-preview",
+    "fallback": {
+      "provider": "openrouter",
+      "model": "google/gemini-2.5-pro"
+    }
+  },
+  "executor": {
+    "provider": "openrouter",
+    "model": "meta-llama/llama-3.1-70b-instruct",
+    "fallback": {
+      "provider": "openrouter",
+      "model": "openai/gpt-5-mini"
+    }
+  },
+  "contextor": {
+    // Optional: Only needed if using app lock feature
+    "provider": "openrouter",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "fallback": {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.3-70b-instruct"
+    }
+  },
+  "utils": {
+    "hopper": {
+      // Needs at least a 256k context window.
+      "provider": "openrouter",
+      "model": "openai/gpt-5-nano",
+      "fallback": {
+        "provider": "openrouter",
+        "model": "openai/gpt-5-mini"
+      }
+    },
+    "outputter": {
+      "provider": "openrouter",
+      "model": "openai/gpt-5-nano",
+      "fallback": {
+        "provider": "openrouter",
+        "model": "openai/gpt-5-mini"
+      }
+    },
+    // video_analyzer is optional - only needed when using video recording tools
+    // Requires a video-capable model.
+    "video_analyzer": {
+      "provider": "openrouter",
+      "model": "google/gemini-3-flash-preview",
+      "fallback": {
+        "provider": "openrouter",
+        "model": "google/gemini-2.5-flash"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+ConnectivityService (dumpsys connectivity)
+
+Active default network: 100
+
+NetworkAgentInfo [WIFI () - 100]
+  Capabilities: [ INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED ]
+  NetworkInfo: state: CONNECTED
+
+NetworkAgentInfo [CELLULAR () - 101]
+  Capabilities: [ INTERNET&NOT_RESTRICTED ]
+  NetworkInfo: state: DISCONNECTED

@@ -1,0 +1,2 @@
+{"task_id":"aw_traj_sample_001","step":0,"observation":{"ui_text":"home"},"action":{"type":"wait","note":"sample trajectory step 0"}}
+{"task_id":"aw_traj_sample_001","step":1,"observation":{"ui_text":"settings"},"action":{"type":"finished","note":"sample trajectory end"}}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MAS Runnable Adapter Manifest",
+  "type": "object",
+  "required": ["agent_id", "default_coord_space"],
+  "properties": {
+    "agent_id": { "type": "string", "minLength": 1 },
+    "notes": { "type": "string" },
+    "default_coord_space": {
+      "type": "string",
+      "enum": [
+        "physical_px",
+        "screenshot_px",
+        "logical_px",
+        "normalized_physical",
+        "normalized_screenshot",
+        "normalized_logical"
+      ]
+    },
+    "action_evidence": { "$ref": "#/$defs/action_evidence" }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "action_evidence": {
+      "type": "object",
+      "required": ["level", "source", "event_stream"],
+      "additionalProperties": false,
+      "properties": {
+        "level": { "type": "string", "enum": ["L1", "L2"] },
+        "source": { "type": "string", "enum": ["agent_events", "comm_proxy"] },
+        "event_stream": {
+          "type": "object",
+          "required": ["format", "path_on_host"],
+          "additionalProperties": false,
+          "properties": {
+            "format": { "type": "string", "minLength": 1 },
+            "path_on_host": { "type": "string", "minLength": 1 }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "level": { "const": "L1" } }, "required": ["level"] },
+          "then": { "properties": { "source": { "const": "agent_events" } }, "required": ["source"] }
+        },
+        {
+          "if": { "properties": { "level": { "const": "L2" } }, "required": ["level"] },
+          "then": { "properties": { "source": { "const": "comm_proxy" } }, "required": ["source"] }
+        }
+      ]
+    }
+  }
+}

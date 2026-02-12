@@ -1,0 +1,10 @@
+Packages:
+  Package [com.example.app] (7f32d8a):
+    userId=10234
+    pkg=Package{123456 com.example.app}
+    codePath=/data/app/~~abc123==/com.example.app-xyz/base.apk
+    versionCode=123 minSdk=24 targetSdk=34
+    versionName=1.2.3
+    firstInstallTime=2026-01-05 10:00:00
+    lastUpdateTime=2026-01-05 10:00:00
+

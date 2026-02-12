@@ -1,0 +1,5 @@
+{
+  "agent_id": "toy_agent",
+  "default_coord_space": "physical_px",
+  "notes": "Local toy adapter for Phase3 wiring tests."
+}

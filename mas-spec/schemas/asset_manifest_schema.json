@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mas/asset_manifest_schema.json",
+  "title": "MAS AssetManifest (Discover/CaseGen)",
+  "type": "object",
+  "required": ["manifest_id", "assets"],
+  "properties": {
+    "manifest_id": {"type": "string", "minLength": 1},
+    "producer": {
+      "type": "string",
+      "description": "Producer identifier (e.g., casegen, codex, local_stub)."
+    },
+    "inputs_digest": {
+      "type": "string",
+      "description": "Digest of generation inputs (seed/prompt/params) for reproducibility."
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["asset_id", "path", "sha256"],
+        "properties": {
+          "asset_id": {"type": "string", "minLength": 1},
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "minLength": 1},
+          "bytes": {"type": "integer", "minimum": 0},
+          "mime_type": {"type": "string"},
+          "metadata": {"type": "object", "additionalProperties": true}
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence_refs": {
+      "type": "object",
+      "description": "References to build logs/codex trace/work reports for auditability.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+

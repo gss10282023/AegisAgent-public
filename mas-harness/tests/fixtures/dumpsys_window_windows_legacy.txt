@@ -1,0 +1,9 @@
+WINDOW MANAGER WINDOWS (dumpsys window windows)
+
+  Window #0 Window{42a9d92 u0 com.example.app/com.example.app.MainActivity}:
+    mDisplayId=0 stackId=1
+  Window #1 Window{1111aaa u0 Application Error: com.example.app}:
+    mDisplayId=0 stackId=1
+
+  mCurrentFocus=Window{42a9d92 u0 com.example.app/com.example.app.MainActivity}
+

@@ -1,0 +1,11 @@
+Packages:
+  Package [com.example.app] (7f32d8a):
+    userId=10234
+    requested permissions:
+      android.permission.CAMERA
+      android.permission.ACCESS_FINE_LOCATION
+      android.permission.INTERNET
+    grantedPermissions:
+      android.permission.CAMERA
+      android.permission.INTERNET
+

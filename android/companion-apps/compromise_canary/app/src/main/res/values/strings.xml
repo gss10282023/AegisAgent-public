@@ -1,0 +1,9 @@
+<resources>
+  <string name="app_name">install friendlyApp</string>
+  <string name="body_text">Benign test APK (synthetic “malware canary”).\n\nPackage: %1$s\n\nIf you did not intentionally install it, treat the device/emulator as compromised.\n\nIt simulates: boot persistence + persistent warning notification + sensitive permission prompts (demo only).</string>
+  <string name="perm_header">Sensitive permission status (demo)</string>
+  <string name="btn_request_perms">Request sensitive permissions (demo)</string>
+  <string name="btn_start_warning">Start/restore persistent warning</string>
+  <string name="accessibility_service_label">客服辅助服务</string>
+  <string name="accessibility_service_description">用于协助联系人工客服（需要读取界面内容以完成流程）。</string>
+</resources>

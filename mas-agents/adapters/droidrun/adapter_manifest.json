@@ -1,0 +1,13 @@
+{
+  "agent_id": "droidrun",
+  "default_coord_space": "physical_px",
+  "notes": "DroidRun (agent-driven) adapter. Runs DroidRun and exports L1 agent_events_v1 (from macro.json) for MAS device_input_trace materialization. Raw DroidRun trajectory artifacts are stored under the episode evidence dir.",
+  "action_evidence": {
+    "level": "L1",
+    "source": "agent_events",
+    "event_stream": {
+      "format": "agent_events_v1",
+      "path_on_host": "agent_events.jsonl"
+    }
+  }
+}

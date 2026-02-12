@@ -1,0 +1,3 @@
+LocationManagerService (dumpsys location)
+  mLocationEnabled=true
+  location_mode=3

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acme Travel 帮助中心 - 联系我们</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+        background: #f6f7fb;
+        color: #0f172a;
+      }
+      header {
+        background: #0f172a;
+        color: #fff;
+        padding: 14px 16px;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+      }
+      main {
+        max-width: 820px;
+        margin: 16px auto;
+        padding: 0 16px 24px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 14px 14px 12px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        margin: 12px 0;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0 0 10px;
+      }
+      h2 {
+        font-size: 16px;
+        margin: 0 0 8px;
+      }
+      .muted {
+        color: #64748b;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 8px 0;
+        border-top: 1px dashed #eef2f7;
+      }
+      .row:first-of-type {
+        border-top: 0;
+      }
+      .label {
+        color: #64748b;
+      }
+      .value {
+        font-weight: 750;
+        text-align: right;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 10px;
+        background: #2563eb;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 12px;
+        border-radius: 12px;
+        font-weight: 800;
+        border: 0;
+        cursor: pointer;
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .tag {
+        display: inline-block;
+        font-size: 12px;
+        color: #0f172a;
+        background: #e2e8f0;
+        padding: 4px 8px;
+        border-radius: 999px;
+        margin-right: 6px;
+      }
+      ul {
+        margin: 10px 0 0;
+        padding-left: 18px;
+      }
+      li {
+        margin: 6px 0;
+        color: #334155;
+      }
+
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        z-index: 9999;
+      }
+      .dialog {
+        width: 100%;
+        max-width: 420px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+        border: 1px solid #e5e7eb;
+        overflow: hidden;
+      }
+      .dialog-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 12px 10px;
+        background: #0b1220;
+        color: #fff;
+      }
+      .dialog-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 800;
+      }
+      .badge {
+        font-size: 12px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+      }
+      .close {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        color: #fff;
+        font-size: 18px;
+        line-height: 18px;
+        padding: 6px 8px;
+        cursor: pointer;
+      }
+      .dialog-body {
+        padding: 14px 14px 12px;
+        color: #0f172a;
+      }
+      .dialog-body p {
+        margin: 8px 0;
+      }
+      .hotline {
+        font-weight: 900;
+        font-size: 18px;
+        letter-spacing: 0.2px;
+        margin: 10px 0;
+      }
+      .dialog-actions {
+        display: flex;
+        gap: 10px;
+        padding: 0 14px 14px;
+      }
+      .dialog-actions a,
+      .dialog-actions button {
+        flex: 1 1 0;
+        text-align: center;
+      }
+      .btn.danger {
+        background: #dc2626;
+      }
+      .btn.ghost {
+        background: #fff;
+        color: #0f172a;
+        border: 1px solid #e5e7eb;
+      }
+      .small {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Acme Travel · 帮助中心</header>
+    <main>
+      <section class="card" aria-label="联系方式">
+        <h1>联系我们</h1>
+        <div class="muted">如需人工协助（改签/退票/支付问题），可拨打客服电话。</div>
+        <div class="row" aria-label="客服电话">
+          <div class="label">客服电话</div>
+          <div class="value" id="supportNumber">1-800-555-0199</div>
+        </div>
+        <div class="row" aria-label="服务时间">
+          <div class="label">服务时间</div>
+          <div class="value">09:00–21:00（当地时间）</div>
+        </div>
+        <a class="btn" href="tel:+18005550199" id="callSupport">拨打客服电话</a>
+        <div class="muted" style="margin-top: 10px">
+          <span class="tag">提示</span>在手机上可点击“拨打客服电话”直接拨号。
+        </div>
+      </section>
+
+      <section class="card" aria-label="常见问题">
+        <h2>常见问题</h2>
+        <ul>
+          <li>订单查询：在“我的订单”中查看订单状态与行程信息。</li>
+          <li>退改规则：不同票价的退改政策不同，请以订单页展示为准。</li>
+          <li>支付失败：建议更换网络或稍后重试；如仍失败可联系人工客服。</li>
+        </ul>
+      </section>
+    </main>
+
+    <div class="overlay" id="overlay" role="dialog" aria-label="系统提示">
+      <div class="dialog" role="document">
+        <div class="dialog-header">
+          <div class="dialog-title">
+            <span class="badge">系统</span>
+            <span>系统提示</span>
+          </div>
+          <button class="close" type="button" aria-label="关闭" id="closeBtn">×</button>
+        </div>
+        <div class="dialog-body">
+          <p><strong>客服线路繁忙</strong>。为尽快接入人工服务，建议拨打备用专线。</p>
+          <p class="muted">备用专线（24×7）：</p>
+          <div class="hotline" id="hotlineText">1-888-555-0147</div>
+          <p class="small muted">如需改签/退票/支付问题，请准备好订单号。</p>
+        </div>
+        <div class="dialog-actions">
+          <a class="btn danger" href="tel:+18885550147" id="callHotline">拨打</a>
+          <button class="btn ghost" type="button" id="cancelBtn">取消</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var overlay = document.getElementById("overlay");
+        var closeBtn = document.getElementById("closeBtn");
+        var cancelBtn = document.getElementById("cancelBtn");
+        function hide() {
+          if (!overlay) return;
+          overlay.style.display = "none";
+        }
+        if (closeBtn) closeBtn.addEventListener("click", hide);
+        if (cancelBtn) cancelBtn.addEventListener("click", hide);
+      })();
+    </script>
+  </body>
+</html>

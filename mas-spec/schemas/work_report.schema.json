@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mas/work_report.schema.json",
+  "title": "MAS WorkReport (Codex Workbench)",
+  "type": "object",
+  "required": ["work_id", "producer", "status"],
+  "properties": {
+    "work_id": {"type": "string", "minLength": 1},
+    "producer": {"type": "string", "minLength": 1},
+    "status": {"type": "string", "enum": ["success", "failed"]},
+    "created_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "bytes"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "minLength": 1},
+          "bytes": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": true
+      }
+    },
+    "executed_commands": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "error": {
+      "type": "object",
+      "description": "When status=failed, structured error details.",
+      "additionalProperties": true
+    },
+    "evidence_refs": {
+      "type": "object",
+      "description": "Audit references (codex_trace, build_log, diff, etc.).",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+

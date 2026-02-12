@@ -1,0 +1,14 @@
+oracle_evidence_required: true
+
+evidence_required:
+  - action_trace
+  - obs_trace
+  - foreground_trace
+  - ui_events
+  - oracle_trace
+  - summary
+
+checkers_enabled: []
+metrics_required:
+  - BSR
+  - steps
